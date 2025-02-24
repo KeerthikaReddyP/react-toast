@@ -4,7 +4,12 @@ import "./index.css";
 const ToastContainer = () => {
   const [toasts, setToasts] = useState([]);
 
-  const handleClose = () => {};
+  const handleClose = (id) => {
+    const filteredArray=toasts.filter((toast)=>{
+      return toast.id!==id;
+    });
+    setToasts(filteredArray);
+  };
 
   const handleAdd = (message, type) => {
     const id = new Date().getTime();
@@ -28,7 +33,7 @@ const ToastContainer = () => {
             className={`px-4 py-2 m-2 bg-green-700 text-white rounded-md w-60 flex justify-between animate-slide ${toastStyles[type]}`}
           >
             {message}
-            <span className="cursor-pointer text-lg" onClick={handleClose}>
+            <span className="cursor-pointer text-lg" onClick={()=>handleClose(id)}>
               x
             </span>
           </div>
