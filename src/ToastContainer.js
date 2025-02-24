@@ -5,26 +5,22 @@ const ToastContainer = () => {
   const [toasts, setToasts] = useState([]);
 
   const handleClose = (id) => {
-
-    setToasts((prevToasts)=>{
-      prevToasts.filter((toast)=>toast.id!==id);
-    });
-
+    setToasts((prevToasts) => prevToasts.filter((toast) => toast.id !== id));
   };
 
   const handleAdd = (message, type) => {
     const id = new Date().getTime();
-    setToasts((prevToasts)=>[...prevToasts,{id,message,type}]);
-    
-    setTimeout(()=>handleClose(id),4000);
+    setToasts((prevToasts) => [...prevToasts, { id, message, type }]);
+
+    setTimeout(() => handleClose(id), 4000);
   };
 
-  const toastStyles={
-    "success": "bg-green-700",
-    "error":"bg-red-600",
-    "info":"bg-blue-600",
-    "warning":"bg-yellow-500"
-  }
+  const toastStyles = {
+    success: "bg-green-700",
+    error: "bg-red-600",
+    info: "bg-blue-600",
+    warning: "bg-yellow-500",
+  };
 
   return (
     <div>
@@ -35,7 +31,10 @@ const ToastContainer = () => {
             className={`px-4 py-2 m-2 bg-green-700 text-white rounded-md w-60 flex justify-between animate-slide ${toastStyles[type]}`}
           >
             {message}
-            <span className="cursor-pointer text-lg" onClick={()=>handleClose(id)}>
+            <span
+              className="cursor-pointer text-lg"
+              onClick={() => handleClose(id)}
+            >
               x
             </span>
           </div>
