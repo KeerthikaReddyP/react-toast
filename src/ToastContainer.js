@@ -8,6 +8,11 @@ const ToastContainer = () => {
     setShow(false);
   }
 
+  const handleAdd=()=>{
+    setShow(true);
+    setTimeout(handleClose,3000);
+  }
+
   return (
     <div>
       <div className="fixed right-5 top-5">
@@ -18,7 +23,7 @@ const ToastContainer = () => {
         )}
       </div>
       <div className="m-2 p-2 flex justify-center items-center h-screen">
-        <button className="m-2 p-1 border-2 border-gray-500 rounded-md" onClick={()=>setShow(true)}>
+        <button className="m-2 p-1 border-2 border-gray-500 rounded-md" onClick={handleAdd}>
           Success toast
         </button>
         <button className="m-2 p-1 border-2 border-gray-500 rounded-md">
