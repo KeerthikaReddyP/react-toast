@@ -15,10 +15,10 @@ const ToastContainer = () => {
   return (
     <div>
       <div className="fixed right-5 top-5">
-        {toasts.map(({id,message,type}) => (
+        {toasts.map(({ id, message, type }) => (
           <div
             key={id}
-            className="px-4 py-2 bg-green-700 text-white rounded-md w-60 flex justify-between animate-slide"
+            className="px-4 py-2 m-2 bg-green-700 text-white rounded-md w-60 flex justify-between animate-slide"
           >
             {message}
             <span className="cursor-pointer text-lg" onClick={handleClose}>
@@ -30,17 +30,26 @@ const ToastContainer = () => {
       <div className="m-2 p-2 flex justify-center items-center h-screen">
         <button
           className="m-2 p-1 border-2 border-gray-500 rounded-md"
-          onClick={()=>handleAdd("Success toast", "success")}
+          onClick={() => handleAdd("Success toast", "success")}
         >
           Success toast
         </button>
-        <button className="m-2 p-1 border-2 border-gray-500 rounded-md">
+        <button
+          className="m-2 p-1 border-2 border-gray-500 rounded-md"
+          onClick={() => handleAdd("Error toast", "error")}
+        >
           Error toast
         </button>
-        <button className="m-2 p-1 border-2 border-gray-500 rounded-md">
+        <button
+          className="m-2 p-1 border-2 border-gray-500 rounded-md"
+          onClick={() => handleAdd("Info toast", "info")}
+        >
           Info toast
         </button>
-        <button className="m-2 p-1 border-2 border-gray-500 rounded-md">
+        <button
+          className="m-2 p-1 border-2 border-gray-500 rounded-md"
+          onClick={() => handleAdd("Warning toast", "warning")}
+        >
           Warning toast
         </button>
       </div>
