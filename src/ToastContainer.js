@@ -4,12 +4,16 @@ import "./index.css";
 const ToastContainer = () => {
   const [show, setShow] = useState(false);
 
+  const handleClose=()=>{
+    setShow(false);
+  }
+
   return (
     <div>
       <div className="fixed right-5 top-5">
         {show && (
           <div className="px-4 py-2 bg-green-700 text-white rounded-md w-60 flex justify-between animate-slide">
-            Success message <span className="cursor-pointer text-lg">x</span>
+            Success message <span className="cursor-pointer text-lg" onClick={handleClose}>x</span>
           </div>
         )}
       </div>
