@@ -7,18 +7,15 @@ const ToastContainer = () => {
   const handleClose = (id) => {
 
     setToasts((prevToasts)=>{
-      const filteredArray=prevToasts.filter((toast)=>{
-        return toast.id!==id;
-      });
-      return filteredArray;
+      prevToasts.filter((toast)=>toast.id!==id);
     });
 
   };
 
   const handleAdd = (message, type) => {
     const id = new Date().getTime();
-    const newToasts = [...toasts, { id, message, type }];
-    setToasts(newToasts);
+    setToasts((prevToasts)=>[...prevToasts,{id,message,type}]);
+    
     setTimeout(()=>handleClose(id),4000);
   };
 
