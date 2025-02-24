@@ -5,16 +5,21 @@ const ToastContainer = () => {
   const [toasts, setToasts] = useState([]);
 
   const handleClose = (id) => {
-    const filteredArray=toasts.filter((toast)=>{
-      return toast.id!==id;
+
+    setToasts((prevToasts)=>{
+      const filteredArray=prevToasts.filter((toast)=>{
+        return toast.id!==id;
+      });
+      return filteredArray;
     });
-    setToasts(filteredArray);
+
   };
 
   const handleAdd = (message, type) => {
     const id = new Date().getTime();
     const newToasts = [...toasts, { id, message, type }];
     setToasts(newToasts);
+    setTimeout(()=>handleClose(id),4000);
   };
 
   const toastStyles={
