@@ -28,7 +28,7 @@ const ToastContainer = () => {
         {toasts.map(({ id, message, type }) => (
           <div
             key={id}
-            className={`px-4 py-2 m-2 bg-green-700 text-white rounded-md w-60 flex justify-between animate-slide ${toastStyles[type]}`}
+            className={`px-4 py-2 m-2 text-white rounded-md w-60 flex justify-between animate-slide ${toastStyles[type]}`}
           >
             {message}
             <span
